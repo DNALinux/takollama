@@ -18,7 +18,7 @@ pip install takollama
 
 ### Prerequisites
 
-- Python 3.12+
+- Python 3.10+
 - [Ollama](https://ollama.ai/) installed and running
 - Required models pulled in Ollama (e.g., `ollama pull llama3.1`, `ollama pull mxbai-embed-large`)
 
@@ -259,5 +259,6 @@ This project is licensed under the GPL 3.0 as specified in the LICENSE file.
 - `pypdf>=6.0.0`
 
 ## Support
+
 
 For issues and questions, please use the GitHub issue tracker.
