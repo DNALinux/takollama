@@ -86,9 +86,15 @@ class VectorDB:
             logging.error(f"Error adding data to vector database: {e}")
 
 
-    def load_url(self, urls_path, output_dir):
+    def load_url(self, urls_path, output_dir=None):
         """Load and process data from URLs."""
         logging.info("Loading data from URLs...")
+        
+        # Generate random directory if output_dir is not provided
+        if output_dir is None:
+            output_dir = tempfile.mkdtemp()
+            logging.info(f"No output_dir specified. Using temporary directory: {output_dir}")
+        
         self.raw_data = te.TextExtractor(input_dir='', output_dir=output_dir, urls_file=urls_path)
         urls = self.raw_data.get_urls()
         sources = self.show_sources()
