@@ -2,11 +2,11 @@
 For colab
 """
 
-from rag_llama3 import RAG as rag
-from rag_llama3 import VectorDB as vdb
+from takollama import RAG as rag
+from takollama import VectorDB as vdb
 
 # Load configuration, insert path to your configuration file.
-config = rag.load_config('/content/ai/rag_llama3/config_colab.yml')
+config = rag.load_config('/content/takollama/src/takollama/config_colab.yml')
 
 # Extract configuration values
 cfg = config.get('vector_db')

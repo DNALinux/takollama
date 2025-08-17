@@ -7,7 +7,6 @@ import os
 
 import generate_embeddings as ge
 from extract_text import extract_and_save_pdf_text, crawl_and_extract
-from langchain_community.document_loaders import PyPDFLoader
 from preprocess_text import preprocess_files
 
 os.environ['ALLOW_RESET'] = 'TRUE'
