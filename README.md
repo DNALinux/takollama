@@ -180,28 +180,66 @@ Any model supported by Ollama, like:
 
 ## Examples
 
-The `scripts/` directory contains example usage:
-- `RAG_query.py`: Command-line RAG querying
+The package includes various example scripts in `takollama.scripts`:
+- `RAG_query.py`: Command-line RAG querying (available as `takollama-query`)
+- `extract_text.py`: Text extraction utility (available as `takollama-extract`)
 - `create_rag_pipeline.py`: Pipeline creation examples
+- `createDBlocal.py`: Local database creation
+- `createDBColab.py`: Colab-specific database setup
 
 The `notebooks/` directory contains Jupyter notebooks with detailed examples:
 - `DNALinux_RAG_UV.ipynb`: Complete RAG workflow
-- `01_data_extraction.ipynb`: Text extraction examples
-- `02_data_preprocessing.ipynb`: Data preprocessing
-- `03_generate_embeddings.ipynb`: Embedding generation
-- `04_rag_pipeline.ipynb`: RAG pipeline setup
+- Various demonstration notebooks for different use cases
 
-## Command Line Usage
+You can access these scripts after installation:
+```python
+# Access script utilities programmatically
+from takollama.scripts import RAG_query, extract_text
+```
 
-Query your RAG system from the command line:
+## Command Line Tools
+
+After installation, TakoLlama provides command-line tools for common tasks:
+
+### Query RAG Database
 
 ```bash
-python scripts/RAG_query.py \
+takollama-query \
   --e_model mxbai-embed-large \
   --LLM_model llama3.1 \
   --db_dir ./my_db \
   --db_name my_collection \
-  --query "Your question here"
+  --query "Your question here" \
+  --k 4
+```
+
+### Extract Text from Documents
+
+```bash
+# Extract from PDFs and HTML files
+takollama-extract \
+  --input_dir ./documents \
+  --output_dir ./extracted_text \
+  --process_pdfs \
+  --process_html
+
+# Extract from URLs
+takollama-extract \
+  --output_dir ./web_content \
+  --urls_file urls.txt \
+  --process_urls \
+  --max_depth 2
+
+# Extract from all sources
+takollama-extract \
+  --input_dir ./documents \
+  --output_dir ./all_content \
+  --urls_file urls.txt \
+  --process_pdfs \
+  --process_html \
+  --process_urls \
+  --chunk_size 800 \
+  --overlap 150
 ```
 
 ## Contributing
