@@ -167,10 +167,16 @@ vdb.clear_database()
 - `nomic-embed-text`
 
 ### Language Models
-- `llama3.1` (recommended)
+
+Any model supported by Ollama, like:
+
+- `gpt-oss:20b`
+- `deepseek-r1:8b`
+- `gemma3:12b`
+- `llama3.1`
 - `llama3.2:3b`
 - `llama3.3:70b`
-- `phi4`
+- `phi4:14b`
 
 ## Examples
 
